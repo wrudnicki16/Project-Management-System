@@ -11,7 +11,7 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Make port 8000 available to the world outside this container
-#EXPOSE 8000
+#EXPOSE 8000 # This command is commented out for CI/CD mission
 
 # Define environment variable
 ENV APP_ENV=prod
