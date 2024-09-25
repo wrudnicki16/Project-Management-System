@@ -1,6 +1,6 @@
 # Alfred AI FastAPI Project Management API
 
-This project is a Project Management API built with FastAPI, SQLAlchemy, and SQLite. The API allows users to manage projects and their associated tickets. Forked by wrudnicki16 for testing Github Actions.
+This project is a Project Management API built with FastAPI, SQLAlchemy, and SQLite. The API allows users to manage projects and their associated tickets. Forked by wrudnicki16 to test Github Actions.
 
 ## Folder Structure
 ```bash
