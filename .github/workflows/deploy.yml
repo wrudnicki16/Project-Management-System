@@ -24,8 +24,14 @@ jobs:
 
       - name: Authenticate Docker with gcloud
         run: |
-          echo ${{ secrets.GCP_SA_KEY }} | gcloud auth activate-service-account --key-file=-
+          echo "${{ secrets.GCP_SA_KEY }}" > ${HOME}/gcloud-key.json
+          gcloud auth activate-service-account --key-file=${HOME}/gcloud-key.json
           gcloud auth configure-docker
+
+      - name: Debug Authentication and Project ID
+        run: |
+          gcloud auth list
+          gcloud config list project
 
       - name: Build Docker image
         run: |
