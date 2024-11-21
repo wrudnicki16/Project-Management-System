@@ -21,9 +21,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Snyk
+      - name: Run Snyk to check for vulnerabilities in code and dependencies
         uses: snyk/actions/python@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --file=requirements.txt
+
+      - name: Run Snyk to check for vulnerabilities in Docker images
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: my-python-app --file=Dockerfile
